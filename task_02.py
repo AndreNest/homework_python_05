@@ -7,10 +7,10 @@ def draw_board(board):
       print("|", board[0+i*3], "|", board[1+i*3], "|", board[2+i*3], "|")
       print("-" * 13)
 
-def take_input(player_token):
+def take_input(player_x_or_o):
    valid = False
    while not valid:
-      player_answer = input("Куда поставим " + player_token+"? ")
+      player_answer = input("Куда поставим " + player_x_or_o + "? ")
       try:
          player_answer = int(player_answer)
       except:
@@ -18,7 +18,7 @@ def take_input(player_token):
          continue
       if player_answer >= 1 and player_answer <= 9:
          if(str(board[player_answer-1]) not in "X,O"):
-            board[player_answer-1] = player_token
+            board[player_answer-1] = player_x_or_o
             valid = True
          else:
             print("Эта клетка уже занята!")
